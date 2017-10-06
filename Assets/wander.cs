@@ -1,16 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class wander : MonoBehaviour {
 
 	public float wanderRadius;
-	public float wanderTimer;
+	public float waitTimer;
+    public float walkSpeed = 0.3f;
+    public bool wantToWalk;
 
 	private Transform target;
 	private NavMeshAgent agent;
     private float timer;
+    private WaitForSeconds waitForSeconds = new WaitForSeconds(5.0f);
 
     public int state = 0;
     // state definition:
@@ -21,34 +23,65 @@ public class wander : MonoBehaviour {
 	// Use this for initialization
 	void OnEnable()
 	{
+        StartCoroutine("DoCheck");
 		agent = GetComponent<NavMeshAgent>();
+        agent.speed = walkSpeed;
         state = 1;
-        wanderTimer = GetRandomRange();
-        timer = wanderTimer;
+        waitTimer = GetRanRange();
+        timer = waitTimer;
+
 	}
 
-    float GetRandomRange() {
-        return Random.Range(0.00f, 6.00f);
-    }
+	IEnumerator DoCheck()
+	{
+		for (;;)
+		{
+			wantToWalk = GetRanBool();
+            // Not returning a new var reduces garbage
+            yield return waitForSeconds;
+		}
+	}
 
 	// Update is called once per frame
 	void Update()
 	{
-        if (state == 1)
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= wanderTimer)
-            {
-                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-                agent.SetDestination(newPos);
-                timer = 0;
-                // TODO: Change state after wandering?
-                // currently we just get a new duration to graze
-                wanderTimer = GetRandomRange();
-            }
-        }
+		switch (state)
+		{
+			case 1:
+                Wander();
+				break;
+			case 2:
+                Graze();
+				break;
+		}
 	}
+
+    private void Wander() {
+		// While wandering, we count up
+		timer += Time.deltaTime;
+        // Once we go past predefined time, get new locations and head there
+        if ((timer >= waitTimer) && (wantToWalk))
+        {
+            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            agent.SetDestination(newPos);
+            agent.transform.rotation = SmoothLook(newPos);
+            agent.speed = GetRanSpeed();
+            timer = 0;
+            // TODO: Change state after wandering?
+            // currently we just get a new duration to graze
+            waitTimer = GetRanRange();
+        }
+        else state = wantToWalk ? 1 : 2;
+    }
+
+    private void Graze() {
+		timer += Time.deltaTime;
+        if ((timer >= waitTimer) && (!wantToWalk))
+        {
+            waitTimer = GetRanRange();
+        }
+		else state = !wantToWalk ? 2 : 1;
+    }
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
 	{
@@ -58,5 +91,26 @@ public class wander : MonoBehaviour {
 		NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
 
 		return navHit.position;
+	}
+
+    bool GetRanBool()
+    {
+        return Random.value > 0.5f;
+    }
+
+	float GetRanRange()
+	{
+		return Random.Range(0.00f, 6.00f);
+	}
+
+	float GetRanSpeed()
+	{
+		return Random.Range(0.1f, 0.9f);
+	}
+
+	// Smooth rotation towards a supplied direction
+	Quaternion SmoothLook(Vector3 newDirection)
+	{
+		return Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(newDirection), Time.deltaTime);
 	}
 }
