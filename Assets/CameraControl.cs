@@ -25,8 +25,8 @@ public class CameraControl : MonoBehaviour {
 
 		// Zoom in or out
 		var zoomDelta = Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed * Time.deltaTime;
-		// If zoomDelta is not 0, but we're comparing floats so we need to do it this way
-        if (System.Math.Abs(zoomDelta) > 0)
+
+        if (zoomDelta != 0)
 		{
 			translation -= Vector3.up * ZoomSpeed * zoomDelta;
 		}

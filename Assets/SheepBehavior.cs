@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class wander : MonoBehaviour {
+public class SheepBehavior : MonoBehaviour {
 
 	public float wanderRadius;
 	public float waitTimer;
@@ -13,6 +13,9 @@ public class wander : MonoBehaviour {
 	private NavMeshAgent agent;
     private float timer;
     private WaitForSeconds waitForSeconds = new WaitForSeconds(5.0f);
+    private const float FleeSpeed = 0.9f;
+
+    public GameObject nearestBomb;
 
     public int state = 0;
     // state definition:
@@ -23,7 +26,7 @@ public class wander : MonoBehaviour {
 	// Use this for initialization
 	void OnEnable()
 	{
-        StartCoroutine("DoCheck");
+        StartCoroutine(DoCheck());
 		agent = GetComponent<NavMeshAgent>();
         agent.speed = walkSpeed;
         state = 1;
@@ -53,8 +56,44 @@ public class wander : MonoBehaviour {
 			case 2:
                 Graze();
 				break;
+			case 3:
+				Fear();
+				break;
 		}
 	}
+
+	void OnCollisionEnter(Collision c)
+	{
+        if (c.collider.tag == "Bomb")
+		{
+            nearestBomb = c.gameObject;
+            state = 3;
+		}
+	}
+
+    /*
+	void OnCollisionExit(Collision c)
+	{
+		if (c.gameObject.gameObject.name == "Bomb")
+		{
+			state = 2;
+		}
+	}
+	*/
+
+    private void Fear() {
+		timer += Time.deltaTime;
+		
+        if (timer >= 1)
+        {
+			Vector3 newPos = transform.position - nearestBomb.transform.position;
+			agent.SetDestination(newPos);
+			agent.transform.rotation = SmoothLook(newPos);
+			agent.speed = FleeSpeed;
+            timer = 0;
+            state = 2;
+        }
+    }
 
     private void Wander() {
 		// While wandering, we count up

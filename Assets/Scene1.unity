@@ -961,6 +961,7 @@ GameObject:
   - component: {fileID: 1685248978}
   - component: {fileID: 1685248977}
   - component: {fileID: 1685248982}
+  - component: {fileID: 1685248983}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1049,6 +1050,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187d13ab71297468a899980e0fe84bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1685248983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685248976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1951b8ab62745a8aa2d2604343de3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 1111253424588396, guid: 6747b31f1b11048d2be7691a2c5a42b0, type: 2}
 --- !u!1 &1764816532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,8 +1194,9 @@ GameObject:
   - component: {fileID: 1802666549}
   - component: {fileID: 1802666548}
   - component: {fileID: 1802666547}
+  - component: {fileID: 1802666551}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1254,6 +1268,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1802666551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802666546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.31443882, z: 10}
+  m_Center: {x: 0, y: 0.009088993, z: 0}
 --- !u!1001 &1875020958
 Prefab:
   m_ObjectHideFlags: 0
