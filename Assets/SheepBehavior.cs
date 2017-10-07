@@ -62,36 +62,33 @@ public class SheepBehavior : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision c)
+    void OnTriggerEnter(Collider c)
 	{
-        if (c.collider.tag == "Bomb")
+        if (c.tag == "Bomb")
 		{
             nearestBomb = c.gameObject;
             state = 3;
 		}
 	}
 
-    /*
-	void OnCollisionExit(Collision c)
+    void OnTriggerExit(Collider c)
 	{
-		if (c.gameObject.gameObject.name == "Bomb")
+		if (c.tag == "Bomb")
 		{
-			state = 2;
+			state = 1;
 		}
 	}
-	*/
 
     private void Fear() {
 		timer += Time.deltaTime;
 		
-        if (timer >= 1)
+        if (timer >= 2)
         {
-			Vector3 newPos = transform.position - nearestBomb.transform.position;
+            transform.rotation = Quaternion.LookRotation(transform.position - nearestBomb.transform.position);
+            Vector3 newPos = transform.position + transform.forward;
 			agent.SetDestination(newPos);
-			agent.transform.rotation = SmoothLook(newPos);
 			agent.speed = FleeSpeed;
             timer = 0;
-            state = 2;
         }
     }
 
