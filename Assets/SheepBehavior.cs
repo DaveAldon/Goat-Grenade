@@ -82,7 +82,7 @@ public class SheepBehavior : MonoBehaviour {
     private void Fear() {
 		timer += Time.deltaTime;
 		
-        if (timer >= 2)
+        if ((timer >= 2) && (nearestBomb != null))
         {
             transform.rotation = Quaternion.LookRotation(transform.position - nearestBomb.transform.position);
             Vector3 newPos = transform.position + transform.forward;
