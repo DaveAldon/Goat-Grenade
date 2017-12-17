@@ -1,0 +1,603 @@
+fileFormatVersion: 2
+guid: f8682805c345ec84fab7d709785abd8d
+timeCreated: 1511411453
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: EarLH001
+    100002: EarRH001
+    100004: EyeLH001
+    100006: EyeLH002
+    100008: EyeRH001
+    100010: EyeRH002
+    100012: FootFRLH001
+    100014: FootFRRH001
+    100016: FootRrLH001
+    100018: FootRrRH001
+    100020: GeoSphere003
+    100022: Head001
+    100024: Head002
+    100026: Head003
+    100028: Head004
+    100030: Head005
+    100032: HipFRLH001
+    100034: HipFRRH001
+    100036: HipRrLH001
+    100038: HipRrRH001
+    100040: IK FrtLH
+    100042: IK FrtRH
+    100044: IK RrLH
+    100046: IK RrRH
+    100048: LegFrLH001
+    100050: LegFrRH001
+    100052: LegRrLH001
+    100054: LegRrRH001
+    100056: //RootNode
+    100058: Spine001
+    100060: Spine002
+    100062: Spine003
+    400000: EarLH001
+    400002: EarRH001
+    400004: EyeLH001
+    400006: EyeLH002
+    400008: EyeRH001
+    400010: EyeRH002
+    400012: FootFRLH001
+    400014: FootFRRH001
+    400016: FootRrLH001
+    400018: FootRrRH001
+    400020: GeoSphere003
+    400022: Head001
+    400024: Head002
+    400026: Head003
+    400028: Head004
+    400030: Head005
+    400032: HipFRLH001
+    400034: HipFRRH001
+    400036: HipRrLH001
+    400038: HipRrRH001
+    400040: IK FrtLH
+    400042: IK FrtRH
+    400044: IK RrLH
+    400046: IK RrRH
+    400048: LegFrLH001
+    400050: LegFrRH001
+    400052: LegRrLH001
+    400054: LegRrRH001
+    400056: //RootNode
+    400058: Spine001
+    400060: Spine002
+    400062: Spine003
+    4300000: GeoSphere003
+    7400000: Walk
+    7400002: Run
+    7400004: IdleGraze
+    7400006: Downed
+    7400008: Dead
+    9500000: //RootNode
+    13700000: GeoSphere003
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GeoSphere003
+        weight: 1
+      - path: IK FrtLH
+        weight: 1
+      - path: IK FrtRH
+        weight: 1
+      - path: IK RrLH
+        weight: 1
+      - path: IK RrRH
+        weight: 1
+      - path: Spine001
+        weight: 1
+      - path: Spine001/Head001
+        weight: 1
+      - path: Spine001/Head001/Head002
+        weight: 1
+      - path: Spine001/Head001/Head002/EarLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EarRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH002
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH002
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003/Head004
+        weight: 1
+      - path: Spine001/Head001/Head002/Head005
+        weight: 1
+      - path: Spine001/HipFRLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001/FootFRLH001
+        weight: 1
+      - path: Spine001/HipFRRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001/FootFRRH001
+        weight: 1
+      - path: Spine001/Spine002
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001/FootRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001/FootRrRH001
+        weight: 1
+      - path: Spine001/Spine002/Spine003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 41
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GeoSphere003
+        weight: 1
+      - path: IK FrtLH
+        weight: 1
+      - path: IK FrtRH
+        weight: 1
+      - path: IK RrLH
+        weight: 1
+      - path: IK RrRH
+        weight: 1
+      - path: Spine001
+        weight: 1
+      - path: Spine001/Head001
+        weight: 1
+      - path: Spine001/Head001/Head002
+        weight: 1
+      - path: Spine001/Head001/Head002/EarLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EarRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH002
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH002
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003/Head004
+        weight: 1
+      - path: Spine001/Head001/Head002/Head005
+        weight: 1
+      - path: Spine001/HipFRLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001/FootFRLH001
+        weight: 1
+      - path: Spine001/HipFRRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001/FootFRRH001
+        weight: 1
+      - path: Spine001/Spine002
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001/FootRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001/FootRrRH001
+        weight: 1
+      - path: Spine001/Spine002/Spine003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: IdleGraze
+      takeName: Take 001
+      firstFrame: 71
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GeoSphere003
+        weight: 1
+      - path: IK FrtLH
+        weight: 1
+      - path: IK FrtRH
+        weight: 1
+      - path: IK RrLH
+        weight: 1
+      - path: IK RrRH
+        weight: 1
+      - path: Spine001
+        weight: 1
+      - path: Spine001/Head001
+        weight: 1
+      - path: Spine001/Head001/Head002
+        weight: 1
+      - path: Spine001/Head001/Head002/EarLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EarRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH002
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH002
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003/Head004
+        weight: 1
+      - path: Spine001/Head001/Head002/Head005
+        weight: 1
+      - path: Spine001/HipFRLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001/FootFRLH001
+        weight: 1
+      - path: Spine001/HipFRRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001/FootFRRH001
+        weight: 1
+      - path: Spine001/Spine002
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001/FootRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001/FootRrRH001
+        weight: 1
+      - path: Spine001/Spine002/Spine003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Downed
+      takeName: Take 001
+      firstFrame: 151
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GeoSphere003
+        weight: 1
+      - path: IK FrtLH
+        weight: 1
+      - path: IK FrtRH
+        weight: 1
+      - path: IK RrLH
+        weight: 1
+      - path: IK RrRH
+        weight: 1
+      - path: Spine001
+        weight: 1
+      - path: Spine001/Head001
+        weight: 1
+      - path: Spine001/Head001/Head002
+        weight: 1
+      - path: Spine001/Head001/Head002/EarLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EarRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH002
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH002
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003/Head004
+        weight: 1
+      - path: Spine001/Head001/Head002/Head005
+        weight: 1
+      - path: Spine001/HipFRLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001/FootFRLH001
+        weight: 1
+      - path: Spine001/HipFRRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001/FootFRRH001
+        weight: 1
+      - path: Spine001/Spine002
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001/FootRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001/FootRrRH001
+        weight: 1
+      - path: Spine001/Spine002/Spine003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dead
+      takeName: Take 001
+      firstFrame: 185
+      lastFrame: 185
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GeoSphere003
+        weight: 1
+      - path: IK FrtLH
+        weight: 1
+      - path: IK FrtRH
+        weight: 1
+      - path: IK RrLH
+        weight: 1
+      - path: IK RrRH
+        weight: 1
+      - path: Spine001
+        weight: 1
+      - path: Spine001/Head001
+        weight: 1
+      - path: Spine001/Head001/Head002
+        weight: 1
+      - path: Spine001/Head001/Head002/EarLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EarRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeLH002
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH001
+        weight: 1
+      - path: Spine001/Head001/Head002/EyeRH002
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003
+        weight: 1
+      - path: Spine001/Head001/Head002/Head003/Head004
+        weight: 1
+      - path: Spine001/Head001/Head002/Head005
+        weight: 1
+      - path: Spine001/HipFRLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001
+        weight: 1
+      - path: Spine001/HipFRLH001/LegFrLH001/FootFRLH001
+        weight: 1
+      - path: Spine001/HipFRRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001
+        weight: 1
+      - path: Spine001/HipFRRH001/LegFrRH001/FootFRRH001
+        weight: 1
+      - path: Spine001/Spine002
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrLH001/LegRrLH001/FootRrLH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001
+        weight: 1
+      - path: Spine001/Spine002/HipRrRH001/LegRrRH001/FootRrRH001
+        weight: 1
+      - path: Spine001/Spine002/Spine003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

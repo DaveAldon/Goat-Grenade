@@ -4,6 +4,7 @@ using UnityEngine;
 public class BombBehavior : MonoBehaviour {
 
     public Collider fearCollider;
+    public GameObject explosionParticle;
 
     private void OnEnable()
     {
@@ -23,6 +24,9 @@ public class BombBehavior : MonoBehaviour {
 	IEnumerator BeginDeath()
 	{
 		yield return new WaitForSeconds(1f);
+        GetComponent<MeshRenderer>().enabled = false;
+        explosionParticle.SetActive(true);
+        yield return new WaitForSeconds(4f);
         Destroy(this.gameObject);
 	}
 }

@@ -80,6 +80,7 @@ public class SheepBehavior : MonoBehaviour {
 	}
 
     private void Fear() {
+        GetComponent<Animator>().Play("Run");
 		timer += Time.deltaTime;
 		
         if ((timer >= 2) && (nearestBomb != null))
@@ -90,9 +91,11 @@ public class SheepBehavior : MonoBehaviour {
 			agent.speed = FleeSpeed;
             timer = 0;
         }
+        else state = wantToWalk ? 1 : 2;
     }
 
     private void Wander() {
+        GetComponent<Animator>().Play("Walk");
 		// While wandering, we count up
 		timer += Time.deltaTime;
         // Once we go past predefined time, get new locations and head there
@@ -111,6 +114,7 @@ public class SheepBehavior : MonoBehaviour {
     }
 
     private void Graze() {
+        GetComponent<Animator>().Play("IdleGraze");
 		timer += Time.deltaTime;
         if ((timer >= waitTimer) && (!wantToWalk))
         {
