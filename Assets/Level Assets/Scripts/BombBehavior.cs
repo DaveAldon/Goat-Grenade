@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class BombBehavior : MonoBehaviour {
@@ -26,7 +27,28 @@ public class BombBehavior : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
         GetComponent<MeshRenderer>().enabled = false;
         explosionParticle.SetActive(true);
+        ExplosionDamage(this.transform.position, 2);
         yield return new WaitForSeconds(4f);
         Destroy(this.gameObject);
 	}
+
+    void ExplosionDamage(Vector3 center, float radius)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+        //while (i < hitColliders.Length)
+        foreach(Collider c in hitColliders)
+        {
+            try
+            {
+                // We can ask for the sheep attr class specifically if we want too, to specify different dmg levels
+                // depending on the critter
+                c.gameObject.GetComponent<Attributes>().Damage(10);
+            }
+            #pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
+            #pragma warning disable CS0168 // Variable is declared but never used
+            catch (Exception e) { }
+            #pragma warning restore CS0168
+            #pragma warning restore RECS0022
+        }
+    }
 }

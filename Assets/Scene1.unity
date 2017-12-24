@@ -434,6 +434,62 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &461094777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 461094779}
+  - component: {fileID: 461094778}
+  m_Layer: 0
+  m_Name: Waypoint Network
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &461094778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461094777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2099906888, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _preferredSerialization: 2
+    _serializedData: 
+    _serializedMetaData: <meta></meta>
+    _serializedGameObjects: []
+    _serializedCustomData: []
+  _serializer:
+    _preferredSerialization: 1
+    _includeCustomData: 0
+    _serializedDocument: <component version="1.8" type="RAIN.Navigation.Waypoints.WaypointRig"
+      reference="0" includecustomdata="False"><_visualMode>AlwaysOn</_visualMode><_waypointSet
+      reference="1"><_mountPoint sceneobject="3927bbf7-df6d-4039-a843-604fe53a120a"
+      component="0"></_mountPoint><_setName>Waypoint Network</_setName><_setType>Network</_setType><_networkColor>0,0,0.6,1</_networkColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_showOctTree>False</_showOctTree><_waypoints></_waypoints><_connections></_connections></_waypointSet></component>
+    _serializedMetaDocument: <meta></meta>
+    _serializedObjects: []
+    _serializedCustomData: []
+--- !u!4 &461094779
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461094777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1798773, y: 0.1663084, z: -1.1532239}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &555794852
 Prefab:
   m_ObjectHideFlags: 0
@@ -710,6 +766,65 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &944487262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 944487264}
+  - component: {fileID: 944487263}
+  m_Layer: 0
+  m_Name: Waypoint Route
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &944487263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944487262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2099906888, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _preferredSerialization: 2
+    _serializedData: 
+    _serializedMetaData: <meta></meta>
+    _serializedGameObjects: []
+    _serializedCustomData: []
+  _serializer:
+    _preferredSerialization: 1
+    _includeCustomData: 0
+    _serializedDocument: <component version="1.8" type="RAIN.Navigation.Waypoints.WaypointRig"
+      reference="0" includecustomdata="False"><_visualMode>AlwaysOn</_visualMode><_waypointSet
+      reference="1"><_mountPoint sceneobject="25250e80-f944-4535-b608-bed44440358e"
+      component="0"></_mountPoint><_setName>Waypoint Route</_setName><_setType>Route</_setType><_networkColor>0.6,0,0.6,1</_networkColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_showOctTree>False</_showOctTree><_waypoints><element0
+      reference="2"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>3.622173,0,1.026044</_position><_range>0.5</_range></element0><element1
+      reference="3"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>3.704428,0,-1.825011</_position><_range>0.5</_range></element1><element2
+      reference="4"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>-1.21898,0,-0.5817577</_position><_range>0.5</_range></element2></_waypoints><_connections></_connections></_waypointSet></component>
+    _serializedMetaDocument: <meta></meta>
+    _serializedObjects: []
+    _serializedCustomData: []
+--- !u!4 &944487264
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944487262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0391016, y: 0.1663084, z: -0.5714662}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1015628434
 Prefab:
   m_ObjectHideFlags: 0
@@ -756,6 +871,72 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1023794109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1023794110}
+  - component: {fileID: 1023794111}
+  m_Layer: 8
+  m_Name: AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1023794110
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023794109}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.918965, y: 2.9189665, z: 2.9189665}
+  m_Children: []
+  m_Father: {fileID: 1514610427}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023794111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023794109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 157053555, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _preferredSerialization: 2
+    _serializedData: 
+    _serializedMetaData: <meta></meta>
+    _serializedGameObjects: []
+    _serializedCustomData: []
+  _serializer:
+    _preferredSerialization: 1
+    _includeCustomData: 0
+    _serializedDocument: <component version="1.8" type="RAIN.Core.AIRig" reference="0"
+      includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_useFixedUpdate>False</_useFixedUpdate><_ai
+      reference="1"><_isActive>True</_isActive><_body sceneobject="4e4e3efa-70de-4fb6-97e1-631092f86496"></_body><_workingMemory
+      type="RAIN.Memory.BasicMemory" reference="2"><_memoryItems></_memoryItems></_workingMemory><_mind
+      type="RAIN.Minds.BasicMind" reference="3"><_behaviorTree object="-1"></_behaviorTree><_behaviorTreeBindings></_behaviorTreeBindings></_mind><_motor
+      type="RAIN.Motion.BasicMotor" reference="4"><_speed>1</_speed><_rotationSpeed>360</_rotationSpeed><_closeEnoughDistance>0.1</_closeEnoughDistance><_closeEnoughAngle>0.1</_closeEnoughAngle><_faceBeforeMoveAngle>360</_faceBeforeMoveAngle><_maxHeightOffset>1</_maxHeightOffset><_allow3DMovement>False</_allow3DMovement><_allow3DRotation>False</_allow3DRotation><_allowOffGraphMovement>True</_allowOffGraphMovement><_useRootMotion>False</_useRootMotion><_overrideRootRotation>True</_overrideRootRotation><_mecanimParameters></_mecanimParameters></_motor><_animator
+      type="RAIN.Animation.BasicAnimator" reference="5"><_showVisual>True</_showVisual><_leftEye
+      reference="6"><_jointColor>0,0.6,0.6,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_leftEye><_rightEye
+      reference="7"><_jointColor>0,0.6,0.6,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_rightEye><_head
+      reference="8"><_jointColor>0,0,0.6,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_head><_neck
+      reference="9"><_jointColor>0,0,0.6,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_neck><_lookTime>1</_lookTime><_minimumTargetChange>0.1</_minimumTargetChange><_resetEachFrame>False</_resetEachFrame></_animator><_navigator
+      type="RAIN.Navigation.BasicNavigator" reference="10"><_drawPaths>False</_drawPaths><_pathColor>0,0.6,0,1</_pathColor><_outlineColorOffset>-0.5</_outlineColorOffset><_maxPathfindingSteps>100</_maxPathfindingSteps><_maxPathLength>0</_maxPathLength><_padding>0</_padding><_graphTags></_graphTags></_navigator><_senses
+      type="RAIN.Perception.BasicSenses" reference="11"><_sensors></_sensors></_senses><_customElements></_customElements></_ai></component>
+    _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
+      type="System.Int32">3</value></element0></meta>
+    _serializedObjects: []
+    _serializedCustomData: []
 --- !u!1001 &1052211119
 Prefab:
   m_ObjectHideFlags: 0
@@ -1078,6 +1259,66 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1475309490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1475309492}
+  - component: {fileID: 1475309491}
+  m_Layer: 0
+  m_Name: Navigation Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1475309491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1475309490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 354912517, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _preferredSerialization: 2
+    _serializedData: 
+    _serializedMetaData: <meta></meta>
+    _serializedGameObjects: []
+    _serializedCustomData: []
+  _serializer:
+    _preferredSerialization: 1
+    _includeCustomData: 0
+    _serializedDocument: <component version="1.8" type="RAIN.Navigation.NavMesh.NavMeshRig"
+      reference="0" includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_navMesh
+      reference="1"><_mountPoint sceneobject="3c192728-7f90-4070-a744-f71cdc74cdfc"
+      component="0"></_mountPoint><_graphName>Navigation Mesh</_graphName><_size>10</_size><_automaticGridSize>True</_automaticGridSize><_gridSize>1</_gridSize><_meshColor>0,0.6,0,1</_meshColor><_outlineColorOffset>-0.5</_outlineColorOffset><_visualHeightOffset>0.25</_visualHeightOffset><_previewColliders>True</_previewColliders><_displayMode>NavigationMesh</_displayMode><_includedLayers>-1</_includedLayers><_ignoredTags></_ignoredTags><_unwalkableTags></_unwalkableTags><_graphTags></_graphTags><_maxSlope>45</_maxSlope><_walkableHeight>2</_walkableHeight><_walkableRadius>1.04</_walkableRadius><_stepHeight>0.75</_stepHeight><_cellSize>0.1</_cellSize><_maxVertexError>0.2</_maxVertexError><_maxSegmentLength>5</_maxSegmentLength><_graph
+      reference="2" customdata="0"></_graph></_navMesh></component>
+    _serializedMetaDocument: <meta><element0><key>/component/_navMesh/_ignoredTags+_foldout</key><value
+      type="System.Boolean">False</value></element0><element1><key>/component/_navMesh/_unwalkableTags+_foldout</key><value
+      type="System.Boolean">False</value></element1></meta>
+    _serializedObjects: []
+    _serializedCustomData:
+    - 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
+--- !u!4 &1475309492
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1475309490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.039102077, y: 0.1663084, z: -0.5714664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1477573688
 Prefab:
   m_ObjectHideFlags: 0
@@ -1124,6 +1365,16 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1514610421 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1779201493646344, guid: 8bc2df88721454088ba7e91f93d7d6c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1567807503}
+--- !u!4 &1514610427 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4109020143491296, guid: 8bc2df88721454088ba7e91f93d7d6c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1567807503}
 --- !u!1001 &1567807503
 Prefab:
   m_ObjectHideFlags: 0
@@ -1141,7 +1392,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4109020143491296, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.6440002
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 4109020143491296, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1166,6 +1417,139 @@ Prefab:
     - target: {fileID: 1779201493646344, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
       propertyPath: m_Name
       value: Sheep (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642447896753880, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100848189063036, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789138692789110, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542440733994226, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143689047926944, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003888534133840, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232070490798492, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944743737932516, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841507480216448, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860858621335924, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297490454620012, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060018390295816, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721994449149896, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779201493646344, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997483685814796, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172255676618420, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371584285328440, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228470866356394, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364837389417744, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978571051623658, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115393981277364, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538972788589302, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296014125793006, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262687358259606, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188219000456506, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970087132854694, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571554646035024, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164141442704110, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816915857404710, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392216215385612, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584363411906164, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479524937107618, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114708536038749738, guid: 8bc2df88721454088ba7e91f93d7d6c4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
@@ -1815,6 +2199,62 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc2df88721454088ba7e91f93d7d6c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2076386251
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2076386253}
+  - component: {fileID: 2076386252}
+  m_Layer: 0
+  m_Name: '[SerializedScene]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2076386252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076386251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -25400194, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedTags:
+  - _guid: 4e4e3efa-70de-4fb6-97e1-631092f86496
+    _sceneObject: {fileID: 1514610421}
+    _sceneComponents: []
+  - _guid: 3c192728-7f90-4070-a744-f71cdc74cdfc
+    _sceneObject: {fileID: 1475309490}
+    _sceneComponents:
+    - {fileID: 1475309492}
+  - _guid: 25250e80-f944-4535-b608-bed44440358e
+    _sceneObject: {fileID: 944487262}
+    _sceneComponents:
+    - {fileID: 944487264}
+  - _guid: 3927bbf7-df6d-4039-a843-604fe53a120a
+    _sceneObject: {fileID: 461094777}
+    _sceneComponents:
+    - {fileID: 461094779}
+--- !u!4 &2076386253
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076386251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2130018149
 Prefab:
   m_ObjectHideFlags: 0
