@@ -6,6 +6,7 @@ public class BombBehavior : MonoBehaviour {
 
     public Collider fearCollider;
     public GameObject explosionParticle;
+    public int dmg = 100;
 
     private void OnEnable()
     {
@@ -42,7 +43,7 @@ public class BombBehavior : MonoBehaviour {
             {
                 // We can ask for the sheep attr class specifically if we want too, to specify different dmg levels
                 // depending on the critter
-                c.gameObject.GetComponent<Attributes>().Damage(10);
+                c.gameObject.GetComponent<Attributes>().Damage(dmg);
             }
             #pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
             #pragma warning disable CS0168 // Variable is declared but never used

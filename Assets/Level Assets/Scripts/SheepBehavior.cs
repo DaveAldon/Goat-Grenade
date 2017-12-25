@@ -22,6 +22,7 @@ public class SheepBehavior : MonoBehaviour {
     // 1 - wander
     // 2 - graze
     // 3 - afraid
+    // 4 - dead
 
 	// Use this for initialization
 	void OnEnable()
@@ -48,6 +49,14 @@ public class SheepBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+        // For state observation during dev
+        // NOTE that this works fine if there's no textures.
+        ColorDebug();
+
+        if (gameObject.GetComponent<BaseSheepAttribute>().health <= 0) {
+            // TODO make this less complicated
+            state = 4;
+        }
 		switch (state)
 		{
 			case 1:
@@ -59,8 +68,38 @@ public class SheepBehavior : MonoBehaviour {
 			case 3:
 				Fear();
 				break;
+            case 4:
+                Dead();
+                break;
 		}
 	}
+
+    // For debugging the sheep behaviors
+    // TODO observations show that fear state has issues and conflicts with graze/wander decisions.
+    // Behavior structure needs to change so that they're not all fighting with each other.
+    void ColorDebug() {
+        Color red = new Color(1,0,0,1);
+        Color green = new Color(0, 1, 0, 1);
+        Color white = new Color(1, 1, 1, 1);
+        Color yellow = new Color(1, 0.92f, 0.016f, 1);
+        var obj = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        //var obj = gameObject.GetComponent<Renderer>().material.color;
+        switch (state)
+        {
+            case 1:
+                obj.color = green;
+                break;
+            case 2:
+                obj.color = white;
+                break;
+            case 3:
+                obj.color = yellow;
+                break;
+            case 4:
+                obj.color = red; //obj.SetColor("_Color", c);
+                break;
+        }
+    }
 
     void OnTriggerEnter(Collider c)
 	{
@@ -121,6 +160,11 @@ public class SheepBehavior : MonoBehaviour {
             waitTimer = GetRanRange();
         }
 		else state = !wantToWalk ? 2 : 1;
+    }
+
+    private void Dead() {
+        GetComponent<Animator>().Play("Downed");
+        //gameObject.GetComponent<SheepBehavior>().enabled = false;
     }
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
