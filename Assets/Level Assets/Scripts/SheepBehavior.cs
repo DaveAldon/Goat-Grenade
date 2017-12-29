@@ -7,6 +7,7 @@ public class SheepBehavior : MonoBehaviour {
 	public float wanderRadius;
 	public float waitTimer;
     public float walkSpeed = 0.3f;
+    public float RotationSpeed = 500;
     public bool wantToWalk;
 
 	private Transform target;
@@ -33,12 +34,11 @@ public class SheepBehavior : MonoBehaviour {
         state = 1;
         waitTimer = GetRanRange();
         timer = waitTimer;
-
 	}
 
 	IEnumerator DoCheck()
 	{
-		for (;;)
+		while(true)
 		{
 			wantToWalk = GetRanBool();
             // Not returning a new var reduces garbage
@@ -141,8 +141,12 @@ public class SheepBehavior : MonoBehaviour {
         if ((timer >= waitTimer) && (wantToWalk))
         {
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            // Ticking time bomb waiting to go off...
+            // TODO: Don't use coroutine in update! Dirty and needs revision
+            StartCoroutine(RotateAgent(newPos));
+            // Stops the navmesh from rotating the object using its own logic
+            agent.updateRotation = false;
             agent.SetDestination(newPos);
-            agent.transform.rotation = SmoothLook(newPos);
             agent.speed = GetRanSpeed();
             timer = 0;
             // TODO: Change state after wandering?
@@ -164,7 +168,8 @@ public class SheepBehavior : MonoBehaviour {
 
     private void Dead() {
         GetComponent<Animator>().Play("Downed");
-        //gameObject.GetComponent<SheepBehavior>().enabled = false;
+        // Stops them dead in their tracks
+        GetComponent<NavMeshAgent>().enabled = false;
     }
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
@@ -193,8 +198,13 @@ public class SheepBehavior : MonoBehaviour {
 	}
 
 	// Smooth rotation towards a supplied direction
-	Quaternion SmoothLook(Vector3 newDirection)
-	{
-		return Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(newDirection), Time.deltaTime);
-	}
+    IEnumerator RotateAgent(Vector3 newDirection)
+    {
+        var targetRotation = Quaternion.LookRotation(newDirection - gameObject.transform.position);
+        while ((wantToWalk) && (gameObject.transform.rotation != targetRotation))
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, RotationSpeed * Time.deltaTime);
+            yield return 1;
+        }
+    }
 }
