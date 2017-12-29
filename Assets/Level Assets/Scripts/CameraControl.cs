@@ -1,97 +1,74 @@
 ﻿using UnityEngine;
+// Script from https://forum.unity.com/threads/rts-camera-script.72045/ with modifications
 
 public class CameraControl : MonoBehaviour {
-	private const int LevelArea = 2;
+    public float ScrollSpeed = .5f;
 
-	private const int ScrollArea = 25;
-	private const int ScrollSpeed = 10;
-	private const int DragSpeed = 50;
+    public float ScrollEdge = 0.1f;
 
-	private const int ZoomSpeed = 5;
-	private const int ZoomMin = 1;
-	private const int ZoomMax = 5;
+    public float PanSpeed = 10;
 
-	private const int PanSpeed = 35;
-	private const int PanAngleMin = 30;
-	private const int PanAngleMax = 60;
+    public Vector2 zoomRange = new Vector2(-10, 100);
 
-    private const int arrowSpeed = 15;
+    public float CurrentZoom = 0;
 
-	// Update is called once per frame
-	void Update()
-	{
-		// Init camera translation for this frame.
-		var translation = Vector3.zero;
+    public float ZoomZpeed = 1;
 
-		// Zoom in or out
-		var zoomDelta = Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed * Time.deltaTime;
+    public float ZoomRotation = 1;
 
-        if (zoomDelta != 0)
-		{
-			translation -= Vector3.up * ZoomSpeed * zoomDelta;
-		}
+    public Vector2 zoomAngleRange = new Vector2(20, 70);
 
-		// Start panning camera if zooming in close to the ground or if just zooming out.
-        var pan = GetComponent<Camera>().transform.eulerAngles.x - zoomDelta * PanSpeed;
-		pan = Mathf.Clamp(pan, PanAngleMin, PanAngleMax);
-		if (zoomDelta < 0 || GetComponent<Camera>().transform.position.y < (ZoomMax / 2))
-		{
-			GetComponent<Camera>().transform.eulerAngles = new Vector3(pan, 0, 0);
-		}
+    public float rotateSpeed = 100;
 
-		// Move camera with arrow keys
-        translation += new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * arrowSpeed * Time.deltaTime;
+    private Vector3 initialPosition;
 
-        //TODO: Functionality below is deactivated until we know how we want to control everything
-        /*
-		// Move camera with mouse
-		if (Input.GetMouseButton(2)) // MMB
-		{
-			// Hold button and drag camera around
-			translation -= new Vector3(Input.GetAxis("Mouse X") * DragSpeed * Time.deltaTime, 0,
-							   Input.GetAxis("Mouse Y") * DragSpeed * Time.deltaTime);
-		}
-		else
-		{
-			// Move camera if mouse pointer reaches screen borders
-			if (Input.mousePosition.x < ScrollArea)
-			{
-				translation += Vector3.right * -ScrollSpeed * Time.deltaTime;
-			}
+    private Vector3 initialRotation;
 
-			if (Input.mousePosition.x >= Screen.width - ScrollArea)
-			{
-				translation += Vector3.right * ScrollSpeed * Time.deltaTime;
-			}
+    void Start()
+    {
+        initialPosition = transform.position;
+        initialRotation = transform.eulerAngles;
+    }
 
-			if (Input.mousePosition.y < ScrollArea)
-			{
-				translation += Vector3.forward * -ScrollSpeed * Time.deltaTime;
-			}
+    void Update()
+    {
+        if (Input.GetKey("d"))
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * PanSpeed, Space.Self);
+        }
+        else if (Input.GetKey("a"))
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * -PanSpeed, Space.Self);
+        }
 
-			if (Input.mousePosition.y > Screen.height - ScrollArea)
-			{
-				translation += Vector3.forward * ScrollSpeed * Time.deltaTime;
-			}
-		}
-        */
+        if (Input.GetKey("w"))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * PanSpeed, Space.Self);
+        }
+        else if (Input.GetKey("s"))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * -PanSpeed, Space.Self);
+        }
 
-		// Keep camera within level and zoom area
-		var desiredPosition = GetComponent<Camera>().transform.position + translation;
-		if (desiredPosition.x < -LevelArea || LevelArea < desiredPosition.x)
-		{
-			translation.x = 0;
-		}
-		if (desiredPosition.y < ZoomMin || ZoomMax < desiredPosition.y)
-		{
-			translation.y = 0;
-		}
-		if (desiredPosition.z < -LevelArea || LevelArea < desiredPosition.z)
-		{
-			translation.z = 0;
-		}
+        if (Input.GetKey("q"))
+        {
+            transform.Rotate(Vector3.up * Time.deltaTime * -rotateSpeed, Space.World);
+        }
+        else if (Input.GetKey("e"))
+        {
+            transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed, Space.World);
+        }
 
-		// Finally move camera parallel to world axis
-		GetComponent<Camera>().transform.position += translation;
-	}
+        // zoom in/out
+        CurrentZoom -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * 1000 * ZoomZpeed;
+
+        CurrentZoom = Mathf.Clamp(CurrentZoom, zoomRange.x, zoomRange.y);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y - (transform.position.y - (initialPosition.y + CurrentZoom)) * 0.1f, transform.position.z);
+
+        float x = transform.eulerAngles.x - (transform.eulerAngles.x - (initialRotation.x + CurrentZoom * ZoomRotation)) * 0.1f;
+        x = Mathf.Clamp(x, zoomAngleRange.x, zoomAngleRange.y);
+
+        transform.eulerAngles = new Vector3(x, transform.eulerAngles.y, transform.eulerAngles.z);
+    }
 }
