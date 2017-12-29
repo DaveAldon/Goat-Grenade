@@ -169,7 +169,7 @@ public class SheepBehavior : MonoBehaviour {
     private void Dead() {
         GetComponent<Animator>().Play("Downed");
         // Stops them dead in their tracks
-        GetComponent<NavMeshAgent>().enabled = false;
+        agent.SetDestination(transform.position);
     }
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
