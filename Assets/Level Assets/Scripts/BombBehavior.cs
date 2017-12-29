@@ -43,6 +43,7 @@ public class BombBehavior : MonoBehaviour {
             {
                 // We can ask for the sheep attr class specifically if we want too, to specify different dmg levels
                 // depending on the critter
+				// TODO: Make damage a function of distance from the bomb
                 c.gameObject.GetComponent<Attributes>().Damage(dmg);
             }
             #pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
