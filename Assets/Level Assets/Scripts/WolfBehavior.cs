@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +16,10 @@ public class WolfBehavior : Attributes {
 	private const int ATTACK_DAMAGE = 10;
 	// How fast attacks occur. 1/ATTACK_SPEED is the time between attacks in seconds.
 	private const int ATTACK_SPEED = 1;
+	// How far the wolf can see.
+	private const int SIGHT_DISTANCE = 1;
+	// The max angle of the field of vision.
+	private const float MAX_SIGHT_ANGLE = 60.0f;
 
 	public float wanderRadius;
 	public float waitTimer;
@@ -43,6 +48,9 @@ public class WolfBehavior : Attributes {
 		waitTimer = GetRanRange();
 		timer = waitTimer;
 
+		// Field of view visualization.
+		this.GetComponent<FieldOfView> ().viewRadius = SIGHT_DISTANCE;
+		this.GetComponent<FieldOfView> ().viewAngle = MAX_SIGHT_ANGLE;
 	}
 
 	// Get a random boolean value every WAIT_TIME number of seconds.
@@ -138,6 +146,10 @@ public class WolfBehavior : Attributes {
 			// currently we just get a new duration to graze
 			waitTimer = GetRanRange ();
 		}
+
+		if (TargetSighted()) {
+			state = CHASING;
+		}
 	}
 
 	/// <summary>
@@ -165,6 +177,41 @@ public class WolfBehavior : Attributes {
 	}
 
 	/// <summary>
+	/// Returns true when a target is sighted. Returns false otherwise.
+	/// </summary>
+	private bool TargetSighted() {
+		bool sighted = false;
+		Collider[] hitColliders = Physics.OverlapSphere(transform.position, SIGHT_DISTANCE);
+		foreach(Collider c in hitColliders)
+		{
+			try
+			{
+				// Get the direction of the target from the wolf.
+				Vector3 targetDirection = c.gameObject.transform.position - transform.position;
+				// Get the angle between the forward direction of the wolf and the direction of the target.
+				float angle = Vector3.Angle(targetDirection, transform.forward); 
+
+				// Set sheep as the target and sighted to true.
+				if(angle < MAX_SIGHT_ANGLE)
+				{
+					if(c.gameObject.GetComponent<Attributes>().health > 0)
+					{
+						nearestSheep = c.gameObject;
+						sighted = true;
+					}
+				}
+			}
+			#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
+			#pragma warning disable CS0168 // Variable is declared but never used
+			catch (Exception e) { }
+			#pragma warning restore CS0168
+			#pragma warning restore RECS0022
+		}
+
+		return sighted;
+	}
+
+	/// <summary>
 	/// Applies damage to the nearest sheep if within range and the attack timeout has elapsed.
 	/// </summary>
 	private void Attack() {
@@ -178,7 +225,7 @@ public class WolfBehavior : Attributes {
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
 	{
-		Vector3 randDirection = Random.insideUnitSphere * dist;
+		Vector3 randDirection = UnityEngine.Random.insideUnitSphere * dist;
 		randDirection += origin;
 		NavMeshHit navHit;
 		NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
@@ -188,17 +235,17 @@ public class WolfBehavior : Attributes {
 
 	bool GetRanBool()
 	{
-		return Random.value > 0.5f;
+		return UnityEngine.Random.value > 0.5f;
 	}
 
 	float GetRanRange()
 	{
-		return Random.Range(0.00f, 6.00f);
+		return UnityEngine.Random.Range(0.00f, 6.00f);
 	}
 
 	float GetRanSpeed()
 	{
-		return Random.Range(0.1f, 0.9f);
+		return UnityEngine.Random.Range(0.1f, 0.9f);
 	}
 
 	// Smooth rotation towards a supplied direction
