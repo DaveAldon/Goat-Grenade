@@ -9,6 +9,12 @@ public class WolfBehavior : Attributes {
 	private const int DEAD      = 3;
 	// How long to wait before updating wantToWalk.
 	private const float WAIT_TIME = 5.0f;
+	// How far away the wolf can attack from.
+	private const float ATTACK_RANGE = 1.0f;
+	// How much damage an attack inflicts.
+	private const int ATTACK_DAMAGE = 10;
+	// How fast attacks occur. 1/ATTACK_SPEED is the time between attacks in seconds.
+	private const int ATTACK_SPEED = 1;
 
 	public float wanderRadius;
 	public float waitTimer;
@@ -83,20 +89,16 @@ public class WolfBehavior : Attributes {
 	// TODO observations show that fear state has issues and conflicts with graze/wander decisions.
 	// Behavior structure needs to change so that they're not all fighting with each other.
 	void ColorDebug() {
-		Color red = new Color(1,0,0,1);
-		Color green = new Color(0, 1, 0, 1);
-		Color white = new Color(1, 1, 1, 1);
-
 		switch (state)
 		{
 		case WANDERING:
-			gameObject.GetComponent<Renderer>().material.color = green;
+			gameObject.GetComponent<Renderer>().material.color = Color.green;
 			break;
 		case CHASING:
-			gameObject.GetComponent<Renderer>().material.color = white;
+			gameObject.GetComponent<Renderer>().material.color = Color.white;
 			break;
 		case DEAD:
-			gameObject.GetComponent<Renderer>().material.color = red;
+			gameObject.GetComponent<Renderer>().material.color = Color.yellow;
 			break;
 		}
 	}
@@ -106,7 +108,9 @@ public class WolfBehavior : Attributes {
 		if (c.tag == "Bomb") {
 			nearestBomb = c.gameObject;
 			state = WANDERING;
-		} else if (c.tag == "Sheep") {
+		} 
+		// Only chase a sheep that is alive. Targets are only updated after the previously chased sheep is dead.
+		else if ((c.tag == "Sheep") && (c.GetComponent<Attributes>().health > 0) && (nearestSheep == null)) { 
 			nearestSheep = c.gameObject;
 			state = CHASING;
 		}
@@ -116,27 +120,9 @@ public class WolfBehavior : Attributes {
 	{
 		if (c.tag == "Bomb") {
 			state = WANDERING;
-		} else if (c.tag.Contains("Sheep")) {
-			state = WANDERING;
-		} else {
-			print (c.tag.ToString ());
-		}
-
-	}
-
-	private void Chase() {
-		// TODO: Add wolf chase animation here
-
-		if (nearestSheep != null) {
-			transform.rotation = Quaternion.LookRotation (nearestSheep.transform.position);
-			Vector3 newPos = transform.position + transform.forward;
-			agent.SetDestination (newPos);
-			agent.speed = chaseSpeed;
-		} else {
-			state = WANDERING;
 		}
 	}
-
+		
 	private void Wander() {
 		// TODO: Add wolf wander animation here
 		// While wandering, we count up
@@ -154,10 +140,40 @@ public class WolfBehavior : Attributes {
 		}
 	}
 
+	/// <summary>
+	/// Chases the nearest sheep and attacks it if possible.
+	/// </summary>
+	private void Chase() {
+		// TODO: Add wolf chase animation here
+		if ((nearestSheep != null) && (nearestSheep.GetComponent<Attributes>().health > 0)) {
+			transform.rotation = Quaternion.LookRotation(nearestSheep.transform.position - transform.position);
+			Vector3 newPos = transform.position + transform.forward;
+			agent.SetDestination (newPos);
+			agent.speed = chaseSpeed;
+
+			Attack(); // Attack the sheep if possible.
+		} else {
+			nearestSheep = null;
+			state = WANDERING;
+		}
+	}
+
 	private void Downed() {
 		// TODO: Add wolf downed animation.
 		//GetComponent<Animator>().Play("Downed");
 		//gameObject.GetComponent<WolfBehavior>().enabled = false;
+	}
+
+	/// <summary>
+	/// Applies damage to the nearest sheep if within range and the attack timeout has elapsed.
+	/// </summary>
+	private void Attack() {
+		timer += Time.deltaTime;
+		if ((timer >= (1/ATTACK_SPEED)) && (Vector3.Distance(nearestSheep.transform.position, transform.position) < ATTACK_RANGE)) {
+			// TODO: Add wolf attack animation here
+			nearestSheep.gameObject.GetComponent<Attributes>().Damage(ATTACK_DAMAGE);
+			timer = 0;
+		}
 	}
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)

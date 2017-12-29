@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 public class BombBehavior : MonoBehaviour {
-
+	private const float EXPLOSION_RADIUS = .75f;
     public Collider fearCollider;
     public GameObject explosionParticle;
     public int dmg = 100;
@@ -28,7 +28,7 @@ public class BombBehavior : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
         GetComponent<MeshRenderer>().enabled = false;
         explosionParticle.SetActive(true);
-        ExplosionDamage(this.transform.position, 2);
+        ExplosionDamage(this.transform.position, EXPLOSION_RADIUS);
         yield return new WaitForSeconds(4f);
         Destroy(this.gameObject);
 	}
