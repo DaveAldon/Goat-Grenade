@@ -238,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fearCollider: {fileID: 135776458922444766}
   explosionParticle: {fileID: 1563565791879760}
+  dmg: 100
 --- !u!135 &135776458922444766
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -248,7 +249,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136690228400669132
 CapsuleCollider:

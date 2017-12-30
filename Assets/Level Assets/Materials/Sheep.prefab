@@ -1005,6 +1005,7 @@ MonoBehaviour:
   walkSpeed: 0.3
   RotationSpeed: 500
   wantToWalk: 0
+  FleeSpeed: 0.1
   nearestBomb: {fileID: 0}
   state: 0
 --- !u!114 &114877604291832484

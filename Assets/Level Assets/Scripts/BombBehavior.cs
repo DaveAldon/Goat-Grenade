@@ -29,14 +29,13 @@ public class BombBehavior : MonoBehaviour {
         GetComponent<MeshRenderer>().enabled = false;
         explosionParticle.SetActive(true);
         ExplosionDamage(this.transform.position, EXPLOSION_RADIUS);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         Destroy(this.gameObject);
 	}
 
     void ExplosionDamage(Vector3 center, float radius)
     {
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
-        //while (i < hitColliders.Length)
         foreach(Collider c in hitColliders)
         {
             try

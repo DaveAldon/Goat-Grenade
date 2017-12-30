@@ -9,12 +9,12 @@ public class SheepBehavior : MonoBehaviour {
     public float walkSpeed = 0.3f;
     public float RotationSpeed = 500;
     public bool wantToWalk;
+    public float FleeSpeed = 2f;
 
 	private Transform target;
 	private NavMeshAgent agent;
     private float timer;
-    private WaitForSeconds waitForSeconds = new WaitForSeconds(5.0f);
-    private const float FleeSpeed = 0.9f;
+    private WaitForSeconds waitForSeconds;
 
     public GameObject nearestBomb;
 
@@ -83,7 +83,6 @@ public class SheepBehavior : MonoBehaviour {
         Color white = new Color(1, 1, 1, 1);
         Color yellow = new Color(1, 0.92f, 0.016f, 1);
         var obj = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material;
-        //var obj = gameObject.GetComponent<Renderer>().material.color;
         switch (state)
         {
             case 1:
@@ -96,7 +95,7 @@ public class SheepBehavior : MonoBehaviour {
                 obj.color = yellow;
                 break;
             case 4:
-                obj.color = red; //obj.SetColor("_Color", c);
+                obj.color = red;
                 break;
         }
     }
@@ -114,35 +113,32 @@ public class SheepBehavior : MonoBehaviour {
 	{
 		if (c.tag == "Bomb")
 		{
+            nearestBomb = null;
 			state = 1;
 		}
 	}
 
     private void Fear() {
         GetComponent<Animator>().Play("Run");
-		timer += Time.deltaTime;
-		
-        if ((timer >= 2) && (nearestBomb != null))
+        if (nearestBomb != null)
         {
             transform.rotation = Quaternion.LookRotation(transform.position - nearestBomb.transform.position);
             Vector3 newPos = transform.position + transform.forward;
 			agent.SetDestination(newPos);
 			agent.speed = FleeSpeed;
-            timer = 0;
         }
         else state = wantToWalk ? 1 : 2;
     }
 
     private void Wander() {
         GetComponent<Animator>().Play("Walk");
+        waitForSeconds = new WaitForSeconds(GetRanRange());
 		// While wandering, we count up
 		timer += Time.deltaTime;
         // Once we go past predefined time, get new locations and head there
         if ((timer >= waitTimer) && (wantToWalk))
         {
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-            // Ticking time bomb waiting to go off...
-            // TODO: Don't use coroutine in update! Dirty and needs revision
             StartCoroutine(RotateAgent(newPos));
             // Stops the navmesh from rotating the object using its own logic
             agent.updateRotation = false;
@@ -158,6 +154,7 @@ public class SheepBehavior : MonoBehaviour {
 
     private void Graze() {
         GetComponent<Animator>().Play("IdleGraze");
+        waitForSeconds = new WaitForSeconds(GetRanRange());
 		timer += Time.deltaTime;
         if ((timer >= waitTimer) && (!wantToWalk))
         {
