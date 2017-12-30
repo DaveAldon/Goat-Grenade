@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 public class BombBehavior : MonoBehaviour {
-	private const float EXPLOSION_RADIUS = .75f;
+	private const float EXPLOSION_RADIUS = .5f;
     public Collider fearCollider;
     public GameObject explosionParticle;
     public int dmg = 100;

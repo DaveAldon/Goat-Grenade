@@ -154,6 +154,7 @@ public class SheepBehavior : MonoBehaviour {
 
     private void Graze() {
         GetComponent<Animator>().Play("IdleGraze");
+        agent.SetDestination(transform.position);
         waitForSeconds = new WaitForSeconds(GetRanRange());
 		timer += Time.deltaTime;
         if ((timer >= waitTimer) && (!wantToWalk))
