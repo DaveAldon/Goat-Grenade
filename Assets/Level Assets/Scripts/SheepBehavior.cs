@@ -101,33 +101,29 @@ public class SheepBehavior : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider c)
-	{
+    {
         if (c.tag == "Bomb")
-		{
+        {
             nearestBomb = c.gameObject;
             state = 3;
-		}
-	}
+        }
+    }
 
     void OnTriggerExit(Collider c)
-	{
-		if (c.tag == "Bomb")
-		{
-            nearestBomb = null;
-			state = 1;
-		}
-	}
-
-    private void Fear() {
-        GetComponent<Animator>().Play("Run");
-        if (nearestBomb != null)
+    {
+        if (c.tag == "Bomb")
         {
-            transform.rotation = Quaternion.LookRotation(transform.position - nearestBomb.transform.position);
-            Vector3 newPos = transform.position + transform.forward;
-			agent.SetDestination(newPos);
-			agent.speed = FleeSpeed;
+            state = wantToWalk ? 1 : 2;
         }
-        else state = wantToWalk ? 1 : 2;
+    }
+
+    private void Fear()
+    {
+        GetComponent<Animator>().Play("Run");
+        transform.rotation = Quaternion.LookRotation(transform.position - nearestBomb.transform.position);
+        Vector3 newPos = transform.position + transform.forward;
+        agent.SetDestination(newPos);
+        agent.speed = FleeSpeed;
     }
 
     private void Wander() {
