@@ -23,7 +23,8 @@ public class SheepBehavior : MonoBehaviour {
     // 1 - wander
     // 2 - graze
     // 3 - afraid
-    // 4 - dead
+    // 4 - dying
+	// 5 - dead
 
 	// Use this for initialization
 	void OnEnable()
@@ -53,7 +54,9 @@ public class SheepBehavior : MonoBehaviour {
         // NOTE that this works fine if there's no textures.
         ColorDebug();
 
-        if (gameObject.GetComponent<BaseSheepAttribute>().health <= 0) {
+		if ((gameObject.GetComponent<BaseSheepAttribute>().health <= 0) && 
+			state != 5)
+		{
             // TODO make this less complicated
             state = 4;
         }
@@ -69,8 +72,11 @@ public class SheepBehavior : MonoBehaviour {
 				Fear();
 				break;
             case 4:
-                Dead();
+                Dying();
                 break;
+			case 5:
+				// Do nothing.
+				break;
 		}
 	}
 
@@ -95,6 +101,7 @@ public class SheepBehavior : MonoBehaviour {
                 obj.color = yellow;
                 break;
             case 4:
+			case 5:
                 obj.color = red;
                 break;
         }
@@ -160,10 +167,12 @@ public class SheepBehavior : MonoBehaviour {
 		else state = !wantToWalk ? 2 : 1;
     }
 
-    private void Dead() {
+    private void Dying() {
         GetComponent<Animator>().Play("Downed");
         // Stops them dead in their tracks
         agent.SetDestination(transform.position);
+		GameStats.SheepLost();
+		state = 5;
     }
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
