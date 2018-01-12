@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +13,10 @@ public class Manager : MonoBehaviour {
 
     void Start()
     {
+        textFile = Resources.Load(SceneManager.GetActiveScene().name) as TextAsset;
         string text = textFile.text;  //this is the content as string
-        string regex = "sheepCount=(.*);";
-        MatchCollection coll = Regex.Matches(text, regex);
+        string countRegex = "sheepCount=(.*);";
+        MatchCollection coll = Regex.Matches(text, countRegex);
         int max = int.Parse(coll[0].Groups[1].ToString());
         GameStats.SetMaxSheep(max);
         SpawnSheep();
