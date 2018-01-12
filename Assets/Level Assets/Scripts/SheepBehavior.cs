@@ -172,6 +172,7 @@ public class SheepBehavior : MonoBehaviour {
 
     private void Dying() {
         GetComponent<Animator>().Play("Downed");
+        GetComponent<PooController>().enabled = false;
         // Stops them dead in their tracks
         agent.SetDestination(transform.position);
 		GameStats.SheepLost();

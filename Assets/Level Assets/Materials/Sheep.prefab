@@ -327,6 +327,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1616350099413404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4841980744684174}
+  m_Layer: 0
+  m_Name: pooPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1642447896753880
 GameObject:
   m_ObjectHideFlags: 1
@@ -371,6 +386,7 @@ GameObject:
   - component: {fileID: 195706681819403128}
   - component: {fileID: 114708536038749738}
   - component: {fileID: 114877604291832484}
+  - component: {fileID: 114464478087776822}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -545,7 +561,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779201493646344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.96586704, y: 0.06, z: 2.807585}
+  m_LocalPosition: {x: -0.24651489, y: 5.633039e-17, z: -2.5368953}
   m_LocalScale: {x: 0.34258717, y: 0.342587, z: 0.342587}
   m_Children:
   - {fileID: 4137206008675098}
@@ -554,6 +570,7 @@ Transform:
   - {fileID: 4513147974899928}
   - {fileID: 4186371210865460}
   - {fileID: 4723572362297750}
+  - {fileID: 4841980744684174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -851,6 +868,19 @@ Transform:
   m_Father: {fileID: 4894434046598720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4841980744684174
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1616350099413404}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0.071, z: -0.576}
+  m_LocalScale: {x: 0.054603003, y: 0.05460303, z: 0.05460303}
+  m_Children: []
+  m_Father: {fileID: 4109020143491296}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4845404102253826
 Transform:
   m_ObjectHideFlags: 1
@@ -989,6 +1019,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114464478087776822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779201493646344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3a45cb6efa8417caf7c23d66fbb08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooObj: {fileID: 1870119413654962, guid: 4fc1db621d7874ec2a755fa6a7bf75ed, type: 2}
+  pooPosition: {fileID: 1616350099413404}
 --- !u!114 &114708536038749738
 MonoBehaviour:
   m_ObjectHideFlags: 1
