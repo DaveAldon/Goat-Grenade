@@ -126,11 +126,14 @@ public class SheepBehavior : MonoBehaviour {
 
     private void Fear()
     {
-        GetComponent<Animator>().Play("Run");
-        transform.rotation = Quaternion.LookRotation(transform.position - nearestBomb.transform.position);
-        Vector3 newPos = transform.position + transform.forward;
-        agent.SetDestination(newPos);
-        agent.speed = FleeSpeed;
+        if (nearestBomb != null)
+        {
+            GetComponent<Animator>().Play("Run");
+            transform.rotation = Quaternion.LookRotation(transform.position - nearestBomb.transform.position);
+            Vector3 newPos = transform.position + transform.forward;
+            agent.SetDestination(newPos);
+            agent.speed = FleeSpeed;
+        }
     }
 
     private void Wander() {
