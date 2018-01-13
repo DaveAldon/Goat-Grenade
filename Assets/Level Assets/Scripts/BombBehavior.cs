@@ -19,7 +19,7 @@ public class BombBehavior : MonoBehaviour {
 
 	IEnumerator BeginDeath()
 	{
-		yield return new WaitForSeconds(1f);
+		//yield return new WaitForSeconds(1f); // Removing this line makes bombs explode on impact
         GetComponent<MeshRenderer>().enabled = false;
         explosionParticle.SetActive(true);
         ExplosionDamage(this.transform.position, EXPLOSION_RADIUS);
