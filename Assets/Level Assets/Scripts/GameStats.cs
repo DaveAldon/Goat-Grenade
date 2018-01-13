@@ -11,7 +11,22 @@ public static class GameStats {
     private static int maxSheep = 0;
 
 	// The number of wolves in the game.
-	private static int numWolves = 1;
+	private static int numWolves = 0;
+
+    public static void WolfSpawned()
+    {
+        numWolves++;
+    }
+
+    public static void WolfKilled()
+    {
+        if (numWolves > 0) numWolves--;
+    }
+
+    public static int NumWolf()
+    {
+        return numWolves;
+    }
 
     public static void SheepSpawned()
     {

@@ -1,1 +1,2 @@
 sheepCount=20;
+wolfCount=1;

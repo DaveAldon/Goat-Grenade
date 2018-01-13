@@ -9,23 +9,48 @@ public class Manager : MonoBehaviour {
 
     public GameObject terrain;
     public GameObject sheep;
-    public TextAsset textFile;
+    public GameObject wolf;
+    private TextAsset textFile;
+    private string config;
+    private string sheepCountRegex = "sheepCount=(.*);";
+    private string wolfCountRegex = "wolfCount=(.*);";
+
+
+    private void Awake()
+    {
+        textFile = Resources.Load(SceneManager.GetActiveScene().name) as TextAsset;
+        config = textFile.text;  //this is the content as a string
+    }
 
     void Start()
     {
-        textFile = Resources.Load(SceneManager.GetActiveScene().name) as TextAsset;
-        string text = textFile.text;  //this is the content as string
-        string countRegex = "sheepCount=(.*);";
-        MatchCollection coll = Regex.Matches(text, countRegex);
-        int max = int.Parse(coll[0].Groups[1].ToString());
-        GameStats.SetMaxSheep(max);
-        SpawnSheep();
+        SpawnSheep(config);
+        // TODO: Wolf spawning will be handled by other timers depending on level
+        SpawnWolf(config);
     }
 
-    void SpawnSheep() {
+    int GetIntFromRegex(string text, string regex) 
+    {
+        MatchCollection coll = Regex.Matches(text, regex);
+        return int.Parse(coll[0].Groups[1].ToString());
+    }
+
+    void SpawnSheep(string text) 
+    {
+        GameStats.SetMaxSheep(GetIntFromRegex(text, sheepCountRegex));
         for (int i = GameStats.MaxSheep(); i > 0; i--) {
             SetPos();
             Instantiate(sheep, GetPos(), new Quaternion());
+        }
+    }
+
+    void SpawnWolf(string text)
+    {
+        for (int i = GetIntFromRegex(text, wolfCountRegex); i > 0; i--)
+        {
+            SetPos();
+            Instantiate(wolf, GetPos(), new Quaternion());
+            GameStats.WolfSpawned();
         }
     }
 

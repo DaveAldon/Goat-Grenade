@@ -69,7 +69,8 @@ public class SheepBehavior : MonoBehaviour {
                 Graze();
 				break;
 			case 3:
-				Fear();
+                // Added check to stop sheep from entering state without a bomb present
+                if (nearestBomb != null) Fear();
 				break;
             case 4:
                 Dying();
