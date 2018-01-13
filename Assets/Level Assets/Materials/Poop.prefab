@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 136459736699029354}
   - component: {fileID: 23436102918276304}
   - component: {fileID: 54167270367393464}
+  - component: {fileID: 114563922595360570}
   m_Layer: 0
   m_Name: Poop
-  m_TagString: Untagged
+  m_TagString: Temporary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 92852e3f5f9cc493da285aed4a4f9f6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,6 +100,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114563922595360570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870119413654962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30817c6d27d52470785980de3187ced4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136459736699029354
 CapsuleCollider:
   m_ObjectHideFlags: 1

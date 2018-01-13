@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Manager : MonoBehaviour {
+public class SpawnManager : MonoBehaviour {
 
     public float x;
     public float z;
@@ -22,7 +22,7 @@ public class Manager : MonoBehaviour {
         config = textFile.text;  //this is the content as a string
     }
 
-    void Start()
+    void OnEnable()
     {
         SpawnSheep(config);
         // TODO: Wolf spawning will be handled by other timers depending on level

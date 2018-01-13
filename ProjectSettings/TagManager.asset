@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bomb
   - Sheep
+  - Temporary
+  - Wolf
   layers:
   - Default
   - TransparentFX
