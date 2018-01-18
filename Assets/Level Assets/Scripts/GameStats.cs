@@ -10,8 +10,18 @@ public static class GameStats {
 
     private static int maxSheep = 0;
 
+    private static int points = 0;
+
 	// The number of wolves in the game.
 	private static int numWolves = 0;
+
+    public static void GainPoint() {
+        points++;
+    }
+
+    public static int GetPoints() {
+        return points;
+    }
 
     public static void WolfSpawned()
     {
