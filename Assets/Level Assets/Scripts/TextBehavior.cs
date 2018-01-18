@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TextBehavior : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		this.GetComponent<Text> ().text = "Sheep";
+    public Text HUD_SheepCount;
+
+    void Start () {
+        HUD_SheepCount.text = "Sheep!";
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		this.GetComponent<Text> ().text = "Sheep: " + GameStats.NumSheep ().ToString();
+        HUD_SheepCount.text = "Sheep Remaining: " + GameStats.NumSheep ().ToString();
 	}
 }

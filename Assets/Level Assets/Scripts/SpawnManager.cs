@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class SpawnManager : MonoBehaviour {
     private string sheepCountRegex = "sheepCount=(.*);";
     private string wolfCountRegex = "wolfCount=(.*);";
 
+    public Text HUD_SheepCount;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class SpawnManager : MonoBehaviour {
         for (int i = GameStats.MaxSheep(); i > 0; i--) {
             SetPos();
             Instantiate(sheep, GetPos(), new Quaternion());
+            GameStats.SheepSpawned();
         }
     }
 
@@ -57,8 +60,8 @@ public class SpawnManager : MonoBehaviour {
     void SetPos()
     {
         var parent = terrain.GetComponent<MeshFilter>().mesh.bounds;
-        x = Random.Range(parent.min.x, parent.max.x);
-        z = Random.Range(parent.min.z, parent.max.z);
+        x = terrain.transform.position.x - Random.Range(parent.min.x, parent.max.x);
+        z = terrain.transform.position.z - Random.Range(parent.min.z, parent.max.z);
     }
 
     public Vector3 GetPos()
